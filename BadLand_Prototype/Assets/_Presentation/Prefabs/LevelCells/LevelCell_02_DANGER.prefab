@@ -1264,7 +1264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3566752300502482225}
   - component: {fileID: 1340243919130975638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tileset-cave_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2918,7 +2918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5298570420604169440}
   - component: {fileID: 139034608006018318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tileset-cave_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3262,7 +3262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864407152457687329}
   - component: {fileID: 4535333287696745084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tileset-cave_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3346,7 +3346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 944550198631467639}
   - component: {fileID: 1893214095233865612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tileset-cave_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3690,7 +3690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8329120833609959487}
   - component: {fileID: 5698595630582970301}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tileset-cave_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6250,7 +6250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2368231578577427422}
   - component: {fileID: 6963769863580029702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tileset-cave_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
