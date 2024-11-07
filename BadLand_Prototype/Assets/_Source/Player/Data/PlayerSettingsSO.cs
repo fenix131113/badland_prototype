@@ -2,7 +2,7 @@
 
 namespace Player.Data
 {
-    [CreateAssetMenu(fileName = "New PlayerSettingsSO", menuName = "SOs/New PlayerSettingsSO")]
+    [CreateAssetMenu(fileName = "New PlayerSettingsSO", menuName = "SOs/New Player Settings")]
     public class PlayerSettingsSO : ScriptableObject
     {
         [field: SerializeField] public float PlayerSpeed { get; private set; }

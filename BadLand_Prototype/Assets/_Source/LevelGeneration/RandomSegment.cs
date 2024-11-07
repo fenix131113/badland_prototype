@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
-using LevelGenerating.Data;
+using LevelGeneration.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace LevelGenerating
+namespace LevelGeneration
 {
     public class RandomSegment : MonoBehaviour
     {

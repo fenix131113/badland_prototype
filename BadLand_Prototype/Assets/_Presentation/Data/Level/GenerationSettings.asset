@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936aaf8d06264939b614a49512efb549, type: 3}
+  m_Name: GenerationSettings
+  m_EditorClassIdentifier: 
+  <SpawnOffset>k__BackingField: 20.12
+  <StartSegmentsCount>k__BackingField: 15
+  <StartSegment>k__BackingField: {fileID: 11400000, guid: 8025dfa3fb987034baf0597dcd34130f, type: 2}

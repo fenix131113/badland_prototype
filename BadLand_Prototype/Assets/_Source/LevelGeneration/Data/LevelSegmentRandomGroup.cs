@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace LevelGenerating.Data
+namespace LevelGeneration.Data
 {
     [Serializable]
     public class LevelSegmentRandomGroup

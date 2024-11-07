@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Services
+namespace UExtra.Layers
 {
 	public static class LayerService
 	{
