@@ -6,11 +6,11 @@ using Random = UnityEngine.Random;
 
 namespace LevelGenerating
 {
-    public class LevelSegment : MonoBehaviour
+    public class RandomSegment : MonoBehaviour
     {
         [field: SerializeField] private LevelSegmentRandomGroup[] randomGroups = Array.Empty<LevelSegmentRandomGroup>();
 
-        private void Start()
+        private void OnEnable()
         {
             Generate();
         }
