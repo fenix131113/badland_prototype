@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Player;
+using UExtra.Layers;
+using UnityEngine;
 
 namespace DieSystem
 {
@@ -8,7 +10,8 @@ namespace DieSystem
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            //TODO: Kill player
+            if(LayerService.CheckLayersEquality(other.gameObject.layer, interactiveLayer))
+                other.gameObject.GetComponent<PlayerKiller>().Kill();
         }
     }
 }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: GenerationSettings
   m_EditorClassIdentifier: 
   <SpawnOffset>k__BackingField: 20.12
-  <StartSegmentsCount>k__BackingField: 15
+  <StartSegmentsCount>k__BackingField: 4
   <StartSegment>k__BackingField: {fileID: 11400000, guid: 8025dfa3fb987034baf0597dcd34130f, type: 2}
+  <EndSegment>k__BackingField: {fileID: 11400000, guid: 0b5e1ee9c1c64824ba7e22b201935bdf, type: 2}

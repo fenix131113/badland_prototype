@@ -1,4 +1,5 @@
-﻿using UExtra.Layers;
+﻿using Player;
+using UExtra.Layers;
 using UnityEngine;
 
 namespace LevelInteractable
@@ -29,8 +30,11 @@ namespace LevelInteractable
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(LayerService.CheckLayersEquality(other.gameObject.layer, playerLayer))
-                GrowSpike();
+            if (!LayerService.CheckLayersEquality(other.gameObject.layer, playerLayer)) return;
+            
+            GrowSpike();
+            if(_isGrow)
+                other.gameObject.GetComponent<PlayerKiller>().Kill();
         }
     }
 }

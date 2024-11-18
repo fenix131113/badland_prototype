@@ -15,8 +15,10 @@ MonoBehaviour:
   <Prefab>k__BackingField: {fileID: 7844764592271624154, guid: cd9677ead21857a4a8d442d02b52096e, type: 3}
   <ConnectableTo>k__BackingField:
   - <Segment>k__BackingField: {fileID: 11400000, guid: be8cc763151e35a4bb5cba28332e95be, type: 2}
-    <Weight>k__BackingField: 30
+    <Weight>k__BackingField: 23
   - <Segment>k__BackingField: {fileID: 11400000, guid: ae18ccac4d0217e44a5055ed5f575004, type: 2}
-    <Weight>k__BackingField: 30
+    <Weight>k__BackingField: 23
   - <Segment>k__BackingField: {fileID: 11400000, guid: 2bf4ac8d8c3a35041bab3a0ad50b62b5, type: 2}
-    <Weight>k__BackingField: 40
+    <Weight>k__BackingField: 31
+  - <Segment>k__BackingField: {fileID: 11400000, guid: 2bf4ac8d8c3a35041bab3a0ad50b62b5, type: 2}
+    <Weight>k__BackingField: 23

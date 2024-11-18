@@ -1,4 +1,5 @@
-﻿using LevelGeneration.Data;
+﻿using LevelGenerationSystem;
+using LevelGenerationSystem.Data;
 using Player;
 using Player.Data;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace Core
                 .AsSingle()
                 .NonLazy();
 
-            Container.BindInterfacesTo<LevelGeneration.LevelGeneration>()
+            Container.BindInterfacesAndSelfTo<LevelGeneration>()
                 .AsSingle()
                 .NonLazy();
         }
@@ -33,6 +34,10 @@ namespace Core
         private void BindCore()
         {
             Container.Bind<GameStats>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<GameControl>()
                 .AsSingle()
                 .NonLazy();
         }
@@ -45,6 +50,20 @@ namespace Core
 
             Container.Bind<PlayerSettingsSO>()
                 .FromInstance(playerSettingsSO)
+                .AsSingle()
+                .NonLazy();
+
+            Container.Bind<PlayerMovement>()
+                .FromComponentInHierarchy()
+                .AsSingle()
+                .NonLazy();
+            
+            Container.Bind<PlayerKiller>()
+                .FromComponentInHierarchy()
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindInterfacesTo<PlayerCameraExitChecker>()
                 .AsSingle()
                 .NonLazy();
         }

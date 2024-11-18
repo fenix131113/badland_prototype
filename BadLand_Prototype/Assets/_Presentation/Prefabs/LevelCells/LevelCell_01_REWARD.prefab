@@ -5206,14 +5206,6 @@ PrefabInstance:
       value: WoodenChest
       objectReference: {fileID: 0}
     - target: {fileID: 7392409530711505929, guid: 69a809733a5c6084d9bfe7de3b5ee221, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.443
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392409530711505929, guid: 69a809733a5c6084d9bfe7de3b5ee221, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8054545
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392409530711505929, guid: 69a809733a5c6084d9bfe7de3b5ee221, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}

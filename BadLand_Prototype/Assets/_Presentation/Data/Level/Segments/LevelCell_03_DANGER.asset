@@ -17,6 +17,8 @@ MonoBehaviour:
   - <Segment>k__BackingField: {fileID: 11400000, guid: 8b2aea0150905d5488f4a9bf2830ac94, type: 2}
     <Weight>k__BackingField: 10
   - <Segment>k__BackingField: {fileID: 11400000, guid: be8cc763151e35a4bb5cba28332e95be, type: 2}
-    <Weight>k__BackingField: 45
+    <Weight>k__BackingField: 30
   - <Segment>k__BackingField: {fileID: 11400000, guid: ae18ccac4d0217e44a5055ed5f575004, type: 2}
-    <Weight>k__BackingField: 45
+    <Weight>k__BackingField: 30
+  - <Segment>k__BackingField: {fileID: 11400000, guid: 26241bdfa17185b4c98bb151fb7a43bd, type: 2}
+    <Weight>k__BackingField: 30

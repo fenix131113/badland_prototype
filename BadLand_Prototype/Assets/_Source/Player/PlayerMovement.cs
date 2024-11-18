@@ -1,4 +1,6 @@
-﻿using Player.Data;
+﻿using Core;
+using DG.Tweening;
+using Player.Data;
 using UnityEngine;
 using Zenject;
 
@@ -10,57 +12,72 @@ namespace Player
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private float groundCheckDistance;
         [SerializeField] private float rotateSpeed;
-        
-        private bool _isGrounded;
-        
+
+        public bool IsGrounded { get; private set; }
+
+        private bool _rotated;
+        private Tween _rotateTween;
+        private Vector3 _startPosition;
         private PlayerInput _playerInput;
         private PlayerSettingsSO _playerSettings;
+        private PlayerKiller _playerKiller;
+        private GameStats _gameStats;
 
         [Inject]
-        private void Construct(PlayerInput playerInput, PlayerSettingsSO playerSettings)
+        private void Construct(PlayerInput playerInput, PlayerSettingsSO playerSettings, PlayerKiller playerKiller,
+            GameStats gameStats)
         {
             _playerInput = playerInput;
             _playerSettings = playerSettings;
+            _playerKiller = playerKiller;
+            _gameStats = gameStats;
         }
 
-        private void Awake() => Bind();
+        private void Awake()
+        {
+            _startPosition = transform.position;
+
+            Bind();
+        }
 
         private void OnDestroy() => Expose();
 
-        private void FixedUpdate() => CheckGround();
+        private void Update() => CheckGround();
 
         private void CheckGround()
         {
+            if (_gameStats.IsGamePaused)
+                return;
+
             var hit = Physics2D.Raycast(transform.position, Vector2.up, groundCheckDistance, groundLayer);
 
-            _isGrounded = hit;
+            IsGrounded = hit;
             
             CheckRotation();
         }
 
         private void CheckRotation()
         {
-            if(_isGrounded)
-                return;
+            rb.freezeRotation = !IsGrounded;
             
-            rb.freezeRotation = _isGrounded;
-            
-            switch (transform.rotation.z)
+            if (IsGrounded)
             {
-                case > -.15f and < .15f:
-                    transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                    break;
-                case < 0:
-                    transform.eulerAngles += new Vector3(0f, 0f, rotateSpeed);
-                    break;
-                default:
-                    transform.eulerAngles -= new Vector3(0f, 0f, rotateSpeed);
-                    break;
+                _rotateTween?.Kill();
+                _rotated = false;
+                return;
             }
+
+            if (_rotated || IsGrounded) return;
+            
+            _rotated = true;
+            _rotateTween = transform.DORotate(Vector3.zero, .75f).SetEase(Ease.OutBack);
         }
 
         private void Jump()
         {
+            if (_playerKiller.IsDead || _gameStats.IsGamePaused)
+                return;
+
             rb.AddForce(Vector2.up * _playerSettings.PlayerJumpForce, ForceMode2D.Impulse);
 
             rb.velocity = new Vector2(rb.velocity.x,
@@ -69,6 +86,9 @@ namespace Player
 
         private void Move(Vector2 movement)
         {
+            if (_playerKiller.IsDead || _gameStats.IsGamePaused)
+                return;
+
             var moveVector =
                 new Vector2(
                     movement.x * _playerSettings.PlayerSpeed /
@@ -82,16 +102,28 @@ namespace Player
                     rb.velocity.y);
         }
 
+        public void ResetPosition()
+        {
+            transform.position = _startPosition;
+        }
+
+        private void OnPauseStateChanged(bool state)
+        {
+            rb.simulated = !state;
+        }
+
         private void Bind()
         {
             _playerInput.OnJumpInput += Jump;
             _playerInput.OnMoveInput += Move;
+            _gameStats.OnGamePauseStateChanged += OnPauseStateChanged;
         }
 
         private void Expose()
         {
             _playerInput.OnJumpInput -= Jump;
             _playerInput.OnMoveInput -= Move;
+            _gameStats.OnGamePauseStateChanged -= OnPauseStateChanged;
         }
 
         private void OnDrawGizmosSelected()

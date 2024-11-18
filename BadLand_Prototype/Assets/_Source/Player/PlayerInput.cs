@@ -7,11 +7,13 @@ namespace Player
     public class PlayerInput : ITickable, IFixedTickable
     {
         public event Action OnJumpInput;
+        public event Action OnPauseInput;
         public event Action<Vector2> OnMoveInput;
         
         public void Tick()
         {
             JumpInputHandler();
+            PauseMenuInputHandler();
         }
         
         public void FixedTick()
@@ -28,6 +30,12 @@ namespace Player
         {
             if(Input.GetKeyDown(KeyCode.Space))
                 OnJumpInput?.Invoke();
+        }
+
+        private void PauseMenuInputHandler()
+        {
+            if(Input.GetKeyDown(KeyCode.Escape))
+                OnPauseInput?.Invoke();
         }
     }
 }
