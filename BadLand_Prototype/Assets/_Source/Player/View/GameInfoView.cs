@@ -25,8 +25,8 @@ namespace Player.View
 
         private void Redraw()
         {
-            scoreLabel.text = "Score: " + _gameStats.Score;
-            levelLabel.text = "Level: " + _gameStats.CurrentLevel;
+            scoreLabel.text = "Score: " + _gameStats.Score.ToString();
+            levelLabel.text = "Level: " + _gameStats.CurrentLevel.ToString();
         }
 
         private void Bind()

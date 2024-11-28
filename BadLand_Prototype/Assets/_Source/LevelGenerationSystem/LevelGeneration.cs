@@ -16,7 +16,7 @@ namespace LevelGenerationSystem
         private LevelSegmentSO _lastSegment;
 
         [Inject]
-        private void Construct(GenerationSettingsSO generationSettings, GameStats gameStats)
+        public LevelGeneration(GenerationSettingsSO generationSettings, GameStats gameStats)
         {
             _generationSettings = generationSettings;
             _gameStats = gameStats;
